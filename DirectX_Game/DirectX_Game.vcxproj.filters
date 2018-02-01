@@ -151,6 +151,9 @@
     <Filter Include="ヘッダー ファイル\shader">
       <UniqueIdentifier>{6f8aa503-62fc-42f4-ac02-3eca1616e1c2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\01_GameObject\target">
+      <UniqueIdentifier>{55144e6a-4566-4a43-8e4e-4c01b07acd29}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="model.cpp">
@@ -321,14 +324,14 @@
     <ClCompile Include="building.cpp">
       <Filter>ソース ファイル\01_GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="target.cpp">
-      <Filter>ソース ファイル\01_GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="targetRespawnPosition.cpp">
-      <Filter>ソース ファイル\01_GameObject</Filter>
-    </ClCompile>
     <ClCompile Include="exprode.cpp">
       <Filter>ソース ファイル\01_GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="target.cpp">
+      <Filter>ソース ファイル\01_GameObject\target</Filter>
+    </ClCompile>
+    <ClCompile Include="targetRespawnPosition.cpp">
+      <Filter>ソース ファイル\01_GameObject\target</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
