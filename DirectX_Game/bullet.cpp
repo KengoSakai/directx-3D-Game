@@ -18,6 +18,7 @@
 #include "collision.h"
 #include "fire.h"
 #include "enemyModel.h"
+#include "exprode.h"
 /******************************************************************
 定数定義
 *******************************************************************/
@@ -69,7 +70,9 @@ void CBullet::Update(void)
 
 	//エフェクト生成
 	CFire::Create(Position);
+
 	HitObject();
+
 	if (Color.a < 0.0f)
 	{
 		Uninitialize();
@@ -123,6 +126,7 @@ void CBullet::HitObject(void)
 				if (CCollision::SphereCollision(Position, pEnemy->GetPosition()))
 				{
 					pEnemy->HitObject();
+					CExprode::Create(Position);
 					Uninitialize();
 				}
 			}

@@ -20,7 +20,7 @@ class CExprode : public CParticleBillboard
 {
 public:
 	~CExprode(){}
-	void Initialize(void);
+	void Initialize(D3DXVECTOR3 OrderPosition);
 	void Uninitialize(void);
 	void Update(void);
 	void Draw(void);
