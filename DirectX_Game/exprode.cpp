@@ -21,7 +21,7 @@
 #define SIZE (5.0f)
 #define FADE_RATE (2.0f)
 #define SPEED (0.5f)
-#define NUM_EXPRODE (100)
+
 /******************************************************************
 コンストラクタ
 *******************************************************************/
@@ -120,9 +120,7 @@ CExprode *CExprode::Create(D3DXVECTOR3 OrderPosition)
 {
 	CExprode *pExprode;
 
-	//爆破数分繰り返す
-	for (int count = 0; count < NUM_EXPRODE; count++)
-	{
+
 		//インスタンス生成
 		pExprode = new CExprode;
 		
@@ -131,6 +129,6 @@ CExprode *CExprode::Create(D3DXVECTOR3 OrderPosition)
 
 		//テクスチャ設定
 		pExprode->BindTexture(NULL);
-	}
+
 	return pExprode;
 }

@@ -80,10 +80,10 @@ CBaseScene::SCENE_STATE CTitle::Update(void)
 
 	}
 
-	CParticle::Create(D3DXVECTOR3((float)(rand() % 200), 10.0f, (float)(rand() % 200)));
-	CParticle::Create(D3DXVECTOR3((float)(rand() % 200)*-1, 10.0f, (float)(rand() % 200)*-1));
-	CParticle::Create(D3DXVECTOR3((float)(rand() % 200), 10.0f, (float)(rand() % 200)*-1));
-	CParticle::Create(D3DXVECTOR3((float)(rand() % 200)*-1, 10.0f, (float)(rand() % 200)));
+	//CParticle::Create(D3DXVECTOR3((float)(rand() % 200), 10.0f, (float)(rand() % 200)));
+	//CParticle::Create(D3DXVECTOR3((float)(rand() % 200)*-1, 10.0f, (float)(rand() % 200)*-1));
+	//CParticle::Create(D3DXVECTOR3((float)(rand() % 200), 10.0f, (float)(rand() % 200)*-1));
+	//CParticle::Create(D3DXVECTOR3((float)(rand() % 200)*-1, 10.0f, (float)(rand() % 200)));
 
 	return CBaseScene::SCENE_CONTINUE;
 }
