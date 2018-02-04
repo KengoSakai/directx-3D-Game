@@ -46,6 +46,7 @@ private:
 	CNumber * m_apNumber[NUM_DIGIT];			//数字へのポインタ
 	D3DXVECTOR3 Position;					//ＸＹ座標
 	int m_nScore;							//スコアの値
+
 };
 
 

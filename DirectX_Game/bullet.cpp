@@ -144,7 +144,7 @@ void CBullet::HitObject(void)
 				//‹…‚Ì“–‚½‚è”»’è
 				if (CCollision::SphereCollision(Position, pTarget->GetPosition()))
 				{
-					pTarget->HitObject();
+					pTarget->HitObject(OBJTYPE_PLAYER);
 					for (int count = 0; count < NUM_EXPRODE; count++)
 					{
 						CExprode::Create(Position);

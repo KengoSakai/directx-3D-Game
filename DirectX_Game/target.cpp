@@ -2,7 +2,8 @@
 #include "manager.h"
 #include "target.h"
 #include "targetRespawnPosition.h"
-
+#include "game.h"
+#include "score.h"
 //コンストラクタ
 CTarget::CTarget()
 {
@@ -61,8 +62,24 @@ CTarget *CTarget::Create(void)
 	return pTarget;
 }
 
-void CTarget::HitObject(void)
+void CTarget::HitObject(OBJTYPE Type)
 {
+	if (Type == OBJTYPE_PLAYER)
+	{
+		//スコアの加算
+		CGame::GetScore()->AddScore(10);
+	}
+
+	else if (Type == OBJTYPE_ENEMY)
+	{
+	//	CGame::GetOtherPlayerScore()->AddScore(10);
+	}
+
+	else
+	{
+
+	}
+
 	Uninitialize();
 }
 

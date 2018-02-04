@@ -12,7 +12,7 @@ public:
 	void Update(void);
 	void Draw(void);
 	static CTarget *Create(void);
-	void HitObject(void);
+	void HitObject(OBJTYPE Type);
 	D3DXVECTOR3 GetPosition(void);
 
 private:

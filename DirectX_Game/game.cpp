@@ -32,6 +32,9 @@
 #include "pause.h"
 #include "cloud.h"
 #include "target.h"
+#include "score.h"
+
+CScore *CGame::pScore = NULL;
 /******************************************************************
 コンストラクタ
 *******************************************************************/
@@ -131,6 +134,8 @@ void CGame::Create2D(void)
 	CMiniMap::Create();
 
 	CMiniMapPlayer::Create();
+
+	pScore = CScore::Create(CScene::OBJTYPE_SCORE);
 
 	pTime = CTime::Create();
 }

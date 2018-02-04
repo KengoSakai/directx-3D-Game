@@ -65,9 +65,6 @@ void CPlayer::Initialize(void)
 	Speed = 0.0f;
 	State = WALK;
 	Vector = D3DXVECTOR3(1.0f, 1.0f, 1.0f);
-
-	pScore = CScore::Create(CScene::OBJTYPE_SCORE);
-
 }
 
 /******************************************************************
