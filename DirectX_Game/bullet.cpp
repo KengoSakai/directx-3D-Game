@@ -18,6 +18,8 @@
 #include "collision.h"
 #include "fire.h"
 #include "enemyModel.h"
+#include "target.h"
+#include "exprode.h"
 /******************************************************************
 定数定義
 *******************************************************************/
@@ -31,7 +33,7 @@ CRenderer *CBullet::m_pRenderer = NULL;
 *******************************************************************/
 CBullet::CBullet()
 {
-
+	State = SHOT;
 }
 
 /******************************************************************
@@ -69,7 +71,9 @@ void CBullet::Update(void)
 
 	//エフェクト生成
 	CFire::Create(Position);
+
 	HitObject();
+
 	if (Color.a < 0.0f)
 	{
 		Uninitialize();
@@ -115,18 +119,50 @@ void CBullet::HitObject(void)
 			//オブジェクトの型を取得
 			CScene::OBJTYPE ObjType = pScene->GetObjType();
 
+			//敵に当たったら
 			if (ObjType == CScene::OBJTYPE_ENEMY)
 			{
 				//オブジェクトポインタ
 				CEnemyModel *pEnemy= (CEnemyModel*)pScene;
 
+				//球の当たり判定
 				if (CCollision::SphereCollision(Position, pEnemy->GetPosition()))
 				{
 					pEnemy->HitObject();
-					Uninitialize();
+					CExprode::Create(Position);
+					State = HIT;
+					continue;
 				}
+			}
+
+			//ターゲットに当たったら
+			else if (ObjType == CScene::OBJTYPE_TARGET)
+			{
+				//オブジェクトポインタ
+				CTarget *pTarget = (CTarget*)pScene;
+
+				//球の当たり判定
+				if (CCollision::SphereCollision(Position, pTarget->GetPosition()))
+				{
+					pTarget->HitObject();
+					for (int count = 0; count < NUM_EXPRODE; count++)
+					{
+						CExprode::Create(Position);
+					}
+					State = HIT;
+					continue;
+				}
+			}
+			else
+			{
+
 			}
 		}
 	}
 
+	//何かオブジェクトに当たった
+	if (State == HIT)
+	{
+		Uninitialize();
+	}
 }

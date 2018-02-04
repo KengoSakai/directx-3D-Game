@@ -61,7 +61,7 @@ void CFire::Initialize(D3DXVECTOR3 OrderPosition)
 	Rotate.z = cosf((float)rand());
 
 	//êFÇÃèâä˙âª
-	Color = D3DXCOLOR(255.0f, 255.0f, 255.0f, 255.0f);
+	Color = D3DXCOLOR(255.0f, 155.0f, 5.0f, 255.0f);
 }
 
 /******************************************************************

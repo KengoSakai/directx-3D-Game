@@ -117,7 +117,7 @@ void CPlayer::Draw(void)
 	CManager::GetDebugFont()->AddDebugFont("Player:Position.y", Position.y, 0, 20);
 	CManager::GetDebugFont()->AddDebugFont("Player:Position.z", Position.z, 0, 40);
 	CManager::GetDebugFont()->AddDebugFont("Player:Speed", Speed, 0, 60);
-	//CManager::GetDebugFont()->AddDebugFont("Player:State", State, 0, 80);
+	CManager::GetDebugFont()->AddDebugFont("Player:State", State, 0, 80);
 #endif
 }
 
@@ -145,7 +145,7 @@ CPlayer *CPlayer::Create(void)
 
 	pPlayer->BindMaterials(CManager::GetModelManager()->GetNumMaterials(CModelManager::TYPE_PLAYER));
 
-	pPlayer->BindTexture(NULL);
+	pPlayer->BindTexture(CManager::GetTextureManager()->GetTexture(CTextureManager::TYPE_BUILDING));
 
 	return pPlayer;
 }
@@ -160,7 +160,7 @@ void CPlayer::Move(void)
 	if (CManager::GetInputKeyboard()->GetKeyPress(DIK_W))
 	{
 		State = WALK;
-		CParticle::Create(Position);
+		//CParticle::Create(Position);
 	}
 
 	if (CManager::GetInputKeyboard()->GetKeyPress(DIK_S))
@@ -202,6 +202,7 @@ void CPlayer::Move(void)
 	{
 		Position = CPhysics::AddForce(Position, Speed * Vector);
 	}
+	//CParticle::Create(Position);
 }
 
 /******************************************************************
