@@ -18,6 +18,10 @@
 #include "collision.h"
 #include "fire.h"
 #include "enemyModel.h"
+<<<<<<< HEAD
+=======
+#include "target.h"
+>>>>>>> origin/KengoSakaiAnother
 #include "exprode.h"
 /******************************************************************
 定数定義
@@ -32,14 +36,14 @@ CRenderer *CBullet::m_pRenderer = NULL;
 *******************************************************************/
 CBullet::CBullet()
 {
-
+	State = SHOT;
 }
 
 /******************************************************************
 初期化処理関数
 *******************************************************************/
 void CBullet::Initialize(D3DXVECTOR3 OrderPosition, D3DXVECTOR3 OrderVector)
-{	
+{
 	Position = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 	Size = SIZE;
 	CScene3D::Initialize();
@@ -64,8 +68,8 @@ void CBullet::Uninitialize()
 *******************************************************************/
 void CBullet::Update(void)
 {
-	Position += Rotate*SPEED;
-	
+	Position += Rotate * SPEED;
+
 	Color.a -= 1.0f;
 
 	//エフェクト生成
@@ -83,7 +87,7 @@ void CBullet::Update(void)
 描画処理関数
 *******************************************************************/
 void CBullet::Draw(void)
-{	
+{
 
 }
 
@@ -118,19 +122,54 @@ void CBullet::HitObject(void)
 			//オブジェクトの型を取得
 			CScene::OBJTYPE ObjType = pScene->GetObjType();
 
+			//敵に当たったら
 			if (ObjType == CScene::OBJTYPE_ENEMY)
 			{
 				//オブジェクトポインタ
-				CEnemyModel *pEnemy= (CEnemyModel*)pScene;
+				CEnemyModel *pEnemy = (CEnemyModel*)pScene;
 
+				//球の当たり判定
 				if (CCollision::SphereCollision(Position, pEnemy->GetPosition()))
 				{
 					pEnemy->HitObject();
 					CExprode::Create(Position);
+<<<<<<< HEAD
 					Uninitialize();
+=======
+					State = HIT;
+					continue;
 				}
+			}
+
+			//ターゲットに当たったら
+			else if (ObjType == CScene::OBJTYPE_TARGET)
+			{
+				//オブジェクトポインタ
+				CTarget *pTarget = (CTarget*)pScene;
+
+				//球の当たり判定
+				if (CCollision::SphereCollision(Position, pTarget->GetPosition()))
+				{
+					pTarget->HitObject(OBJTYPE_PLAYER);
+					for (int count = 0; count < NUM_EXPRODE; count++)
+					{
+						CExprode::Create(Position);
+					}
+					State = HIT;
+					continue;
+>>>>>>> origin/KengoSakaiAnother
+				}
+			}
+			else
+			{
+
 			}
 		}
 	}
 
+	//何かオブジェクトに当たった
+	if (State == HIT)
+	{
+		Uninitialize();
+	}
 }

@@ -32,6 +32,9 @@
 #include "pause.h"
 #include "cloud.h"
 #include "target.h"
+#include "score.h"
+
+CScore *CGame::pScore = NULL;
 /******************************************************************
 コンストラクタ
 *******************************************************************/
@@ -67,6 +70,8 @@ void CGame::Uninit(void)
 {
 	//全オブジェクト破棄
 	CScene::ReleaseAll();
+
+	CParticleManager::ReleaseAll();
 }
 
 /******************************************************************
@@ -130,6 +135,8 @@ void CGame::Create2D(void)
 
 	CMiniMapPlayer::Create();
 
+	pScore = CScore::Create(CScene::OBJTYPE_SCORE);
+
 	pTime = CTime::Create();
 }
 
@@ -155,6 +162,6 @@ void CGame::Create3D(void)
 
 	for (int Count = 0; Count < 200; Count++)
 	{
-		CCloud::Create();
+		//CCloud::Create();
 	}
 }

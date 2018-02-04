@@ -23,6 +23,15 @@
 class CParticleManager
 {
 public:
+
+	typedef enum
+	{
+		OBJTYPE_NONE = 0,
+		OBJTYPE_PARTICLE,
+		OBJTYPE_FIRE,
+		OBJTYPE_MAX
+	}OBJTYPE;
+
 	CParticleManager();				//コンストラクタ
 	~CParticleManager();			//デストラクタ
 
@@ -35,13 +44,15 @@ public:
 	static void UpdateAll(void);		//オブジェクト全更新処理
 	static void DrawAll (void);			//オブジェクト全描画処理
 	static void ReleaseAll(void);		//オブジェクト全破棄処理
+	void SetObjType(OBJTYPE type);											//オブジェクトの種類格納関数
 
 private:
 	static CParticleManager *m_apParticle[NUM_PARTICLE];	//オブジェクトの最大数
 	static int m_nNumParticle;			//オブジェクトの総数
-	
+
 	//変数宣言
 	int m_nID;				//オブジェクト固有ID
+	OBJTYPE ObjType;		//オブジェクトの種類格納変数
 
 protected:
 	 void Release(void);				//オブジェクト破棄処理

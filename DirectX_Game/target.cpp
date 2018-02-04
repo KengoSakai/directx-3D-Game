@@ -1,7 +1,9 @@
+
 #include "manager.h"
 #include "target.h"
 #include "targetRespawnPosition.h"
-
+#include "game.h"
+#include "score.h"
 //コンストラクタ
 CTarget::CTarget()
 {
@@ -46,7 +48,7 @@ CTarget *CTarget::Create(void)
 	pTarget = new CTarget;
 
 	pTarget->Initialize();
-	
+
 	pTarget->BindMesh(CManager::GetModelManager()->GetMesh(CModelManager::TYPE_PLAYER));
 
 	pTarget->BindBuff(CManager::GetModelManager()->GetMaterialBuffer(CModelManager::TYPE_PLAYER));
@@ -54,8 +56,34 @@ CTarget *CTarget::Create(void)
 	pTarget->BindMaterials(CManager::GetModelManager()->GetNumMaterials(CModelManager::TYPE_PLAYER));
 
 	pTarget->BindTexture(NULL);
-	
+
 	pTarget->SetObjType(OBJTYPE_TARGET);
 
 	return pTarget;
+}
+
+void CTarget::HitObject(OBJTYPE Type)
+{
+	if (Type == OBJTYPE_PLAYER)
+	{
+		//スコアの加算
+		CGame::GetScore()->AddScore(10);
+	}
+
+	else if (Type == OBJTYPE_ENEMY)
+	{
+	//	CGame::GetOtherPlayerScore()->AddScore(10);
+	}
+
+	else
+	{
+
+	}
+
+	Uninitialize();
+}
+
+D3DXVECTOR3 CTarget::GetPosition(void)
+{
+	return Position;
 }

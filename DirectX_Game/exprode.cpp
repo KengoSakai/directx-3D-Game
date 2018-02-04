@@ -14,6 +14,16 @@
 #include "exprode.h"
 #include "manager.h"
 #include "renderer.h"
+<<<<<<< HEAD
+=======
+
+/******************************************************************
+定数定義
+*******************************************************************/
+#define SIZE (5.0f)
+#define FADE_RATE (2.0f)
+#define SPEED (0.5f)
+>>>>>>> origin/KengoSakaiAnother
 
 /******************************************************************
 定数定義
@@ -45,6 +55,7 @@ void CExprode::Initialize(D3DXVECTOR3 OrderPosition)
 
 	//拡大率
 	Scale = D3DXVECTOR3(1.0f, 1.0f, 1.0f);
+<<<<<<< HEAD
 
 	//サイズ
 	Size = SIZE;
@@ -55,6 +66,18 @@ void CExprode::Initialize(D3DXVECTOR3 OrderPosition)
 	//エミッター
 	EmitterPosition = OrderPosition;
 
+=======
+
+	//サイズ
+	Size = SIZE;
+
+	//頂点バッファを再設定
+	CParticleBillboard::SetRotate(D3DXVECTOR3(0.0f, 0.0f, 0.0f), Size);
+
+	//エミッター
+	EmitterPosition = OrderPosition;
+
+>>>>>>> origin/KengoSakaiAnother
 	//角度の設定
 	Rotate.x = cosf((float)rand());
 	Rotate.y = sinf((float)rand());
@@ -80,10 +103,17 @@ void CExprode::Update(void)
 {
 	//エミッターの移動
 	EmitterPosition += Rotate * SPEED;
+<<<<<<< HEAD
 
 	//α値の減算
 	Color.a -= FADE_RATE;
 
+=======
+
+	//α値の減算
+	Color.a -= FADE_RATE;
+
+>>>>>>> origin/KengoSakaiAnother
 	//頂点バッファの色設定
 	SetColor(Color);
 
@@ -120,6 +150,7 @@ CExprode *CExprode::Create(D3DXVECTOR3 OrderPosition)
 {
 	CExprode *pExprode;
 
+<<<<<<< HEAD
 	//爆破数分繰り返す
 	for (int count = 0; count < NUM_EXPRODE; count++)
 	{
@@ -132,5 +163,19 @@ CExprode *CExprode::Create(D3DXVECTOR3 OrderPosition)
 		//テクスチャ設定
 		pExprode->BindTexture(NULL);
 	}
+=======
+
+	//インスタンス生成
+	pExprode = new CExprode;
+
+	//初期化
+	pExprode->Initialize(OrderPosition);
+
+	//テクスチャ設定
+	pExprode->BindTexture(NULL);
+
+	pExprode->SetObjType(OBJTYPE_PARTICLE);
+
+>>>>>>> origin/KengoSakaiAnother
 	return pExprode;
 }

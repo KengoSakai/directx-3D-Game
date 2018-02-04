@@ -17,6 +17,7 @@
 マクロ定義
 *******************************************************************/
 class CTime;
+class CScore;
 /******************************************************************
 構造体またはクラス定義
 *******************************************************************/
@@ -28,12 +29,12 @@ public:
 	virtual void Init(void);			//初期化処理
 	virtual void Uninit(void);			//終了処理
 	virtual SCENE_STATE Update(void);	//更新処理
-
+	static CScore *GetScore(void) { return pScore; }
 private:
 	void Create2D(void);	//2Dオブジェクト生成処理
 	void Create3D(void);	//3Dオブジェクト生成処理
 	CTime *pTime;
-
+	static CScore *pScore;
 protected:
 
 };

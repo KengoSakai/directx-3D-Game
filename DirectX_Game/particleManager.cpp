@@ -117,3 +117,11 @@ void CParticleManager::DrawAll(void)
 		}
 	}
 }
+
+/******************************************************************
+オブジェクトの種類格納関数
+*******************************************************************/
+void CParticleManager::SetObjType(OBJTYPE type)
+{
+	ObjType = type;
+}

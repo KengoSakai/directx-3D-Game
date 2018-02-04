@@ -138,5 +138,6 @@ CParticle *CParticle::Create(D3DXVECTOR3 EmitterPosition)
 	//テクスチャを割り当てる
 	pParticle->BindTexture(CManager::GetTextureManager()->GetTexture(CTextureManager::TYPE_PARTICLE));
 
+	pParticle->SetObjType(OBJTYPE_PARTICLE);
 	return pParticle;
 }

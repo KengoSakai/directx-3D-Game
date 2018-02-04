@@ -18,6 +18,7 @@
 #include "rankingScore.h"
 #include "meshDome.h"
 #include "meshField.h"
+#include "particleManager.h"
 /******************************************************************
 マクロ定義
 *******************************************************************/
@@ -69,6 +70,8 @@ void CResult::Uninit(void)
 {
 	//全オブジェクト破棄
 	CScene::ReleaseAll();
+
+	CParticleManager::ReleaseAll();
 
 }
 

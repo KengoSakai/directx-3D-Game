@@ -34,12 +34,12 @@ CScore::CScore(OBJTYPE type)
 		return;
 	}
 
-	//else if (type == OBJTYPE_OTHERPLAYERSCORE)
-	//{
-	//	//•Ï”‰Šú‰»
-	//	Position = D3DXVECTOR3(1200.0f, 30.0f, 0.0f);
-	//	return;
-	//}
+	else if (type == OBJTYPE_OTHERPLAYERSCORE)
+	{
+		//•Ï”‰Šú‰»
+		Position = D3DXVECTOR3(1200.0f, 30.0f, 0.0f);
+		return;
+	}
 
 	else
 	{
