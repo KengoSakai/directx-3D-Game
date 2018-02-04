@@ -12,9 +12,6 @@ public:
 	void Update(void);
 	void Draw(void);
 	static CTarget *Create(void);
-	void HitObject(void);
-	D3DXVECTOR3 GetPosition(void);
-
 private:
 	CTarget();
 };

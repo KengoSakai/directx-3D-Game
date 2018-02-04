@@ -202,7 +202,6 @@ void CPlayer::Move(void)
 	{
 		Position = CPhysics::AddForce(Position, Speed * Vector);
 	}
-	//CParticle::Create(Position);
 }
 
 /******************************************************************

@@ -13,18 +13,8 @@ public:
 	void Draw(void);
 	static CBullet *Create(D3DXVECTOR3 OrderPosition, D3DXVECTOR3 OrderVector);
 private:
-	typedef enum
-	{
-		NONE=0,
-		SHOT,
-		HIT,
-		MAX
-	}STATE;
-
 	CBullet();
 	void HitObject(void);
-	STATE State;
-
 	//Ã“Iƒƒ“ƒo[•Ï”
 	static CRenderer *m_pRenderer;
 };

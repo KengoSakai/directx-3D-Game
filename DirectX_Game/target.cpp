@@ -59,13 +59,3 @@ CTarget *CTarget::Create(void)
 
 	return pTarget;
 }
-
-void CTarget::HitObject(void)
-{
-	Uninitialize();
-}
-
-D3DXVECTOR3 CTarget::GetPosition(void)
-{
-	return Position;
-}

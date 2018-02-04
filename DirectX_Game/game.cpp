@@ -67,8 +67,6 @@ void CGame::Uninit(void)
 {
 	//全オブジェクト破棄
 	CScene::ReleaseAll();
-
-	CParticleManager::ReleaseAll();
 }
 
 /******************************************************************
@@ -155,8 +153,8 @@ void CGame::Create3D(void)
 
 	CBuilding::Create();
 
-	//for (int Count = 0; Count < 200; Count++)
+	for (int Count = 0; Count < 200; Count++)
 	{
-		//CCloud::Create();
+		CCloud::Create();
 	}
 }

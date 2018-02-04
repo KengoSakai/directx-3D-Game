@@ -79,7 +79,7 @@ void CModelManager::LoadModel(MODEL_TYPE OrderModelType)
 	//デバイス情報取得
 	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetDevice();
 	
-	if (pMatBuff[OrderModelType] == NULL && NumMaterials[OrderModelType] == 0&&pMesh[OrderModelType]==NULL)
+	if (pMatBuff[OrderModelType] == NULL && NumMaterials[OrderModelType] == NULL&&pMesh[OrderModelType]==NULL)
 	{
 		//モデル読み込み
 		if (FAILED(D3DXLoadMeshFromX(pModelList[OrderModelType], D3DXMESH_MANAGED, pDevice, NULL, &pMatBuff[OrderModelType], NULL, &NumMaterials[OrderModelType], &pMesh[OrderModelType])))
