@@ -129,6 +129,8 @@ CFire *CFire::Create(D3DXVECTOR3 OrderPosition)
 	//テクスチャ読み込み
 	CManager::GetTextureManager()->LoadTexture(CTextureManager::TYPE_PARTICLE);
 
+	pFire->SetObjType(OBJTYPE_FIRE);
+
 	//テクスチャを描画クラスに設定
 	pFire->BindTexture(CManager::GetTextureManager()->GetTexture(CTextureManager::TYPE_PARTICLE));
 

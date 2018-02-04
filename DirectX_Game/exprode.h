@@ -1,3 +1,4 @@
+
 /******************************************************************
 ***
 ***		爆破処理
@@ -13,14 +14,15 @@
 インクルードファイル
 *******************************************************************/
 #include "particleBillboard.h"
+#define NUM_EXPRODE (100)
 /******************************************************************
 クラス宣言
 *******************************************************************/
 class CExprode : public CParticleBillboard
 {
 public:
-	~CExprode(){}
-	void Initialize(void);
+	~CExprode() {}
+	void Initialize(D3DXVECTOR3 OrderPosition);
 	void Uninitialize(void);
 	void Update(void);
 	void Draw(void);

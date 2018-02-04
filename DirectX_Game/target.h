@@ -6,12 +6,15 @@
 class CTarget : public CModel
 {
 public:
-	~CTarget(){}
+	~CTarget() {}
 	void Initialize(void);
 	void Uninitialize(void);
 	void Update(void);
 	void Draw(void);
 	static CTarget *Create(void);
+	void HitObject(void);
+	D3DXVECTOR3 GetPosition(void);
+
 private:
 	CTarget();
 };

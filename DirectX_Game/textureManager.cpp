@@ -80,8 +80,8 @@ void CTextureManager::LoadTexture(TEXTURE_TYPE TextureType)
 		{
 			pTexture[TextureType] = NULL;
 
-			MessageBox(NULL, "画像を読み込めませんでした", "エラーメッセージ", MB_OK);					//起動時に表示するタイトルとメッセージ
-			PostQuitMessage(0);
+			MessageBox(NULL, "画像を読み込めませんでした。%s,&TextureType", "エラーメッセージ", MB_OK);					//起動時に表示するタイトルとメッセージ
+			//PostQuitMessage(0);
 		}
 	}
 }

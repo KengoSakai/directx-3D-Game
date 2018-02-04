@@ -55,6 +55,8 @@ void CTitle::Uninit(void)
 {
 	//全オブジェクト破棄
 	CScene::ReleaseAll();
+
+	CParticleManager::ReleaseAll();
 }
 
 /******************************************************************
